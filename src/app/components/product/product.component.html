@@ -1,0 +1,18 @@
+<div class="border px-10 py-10 rounded flex flex-col items-center mb-2 gap-2">
+    <img [src]="product.image" style="width: 200px; height: 200px;" [alt]="product.title">
+    <h2 class="text-md text-center">
+        {{product.title}}
+    </h2>
+    <p>
+        <b>
+            {{product.price | currency}}
+        </b>
+        <span [style]="'color: ' + (product.rating.rate >= 4 ? 'green' : 'red')">
+            {{product.rating.rate}}
+        </span>
+    </p>
+    <button class="bg-yellow-400 p-4 rounded" (click)="details = !details">
+        {{details ? "hide" : "show" }} ditails
+    </button>
+    <p *ngIf="details" class="opacity-90 text-sm">{{product.description}}</p>
+</div>
